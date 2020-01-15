@@ -1,0 +1,94 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_ASAL_SAYI_BULMACA_CLSS
+*&---------------------------------------------------------------------*
+
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_NUMERIK_ISLEMLERR_CLSS
+*&---------------------------------------------------------------------*
+
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_KARAKTER_ISLEMLERI_CLSS
+*&---------------------------------------------------------------------*
+
+CLASS gcl_class DEFINITION FINAL. "TANIM FİNALİ
+
+  PUBLIC SECTION.
+
+    METHODS: constructor " بناء
+      IMPORTING
+         iv_sayi1 TYPE numc5
+         iv_sayi2 TYPE numc5,
+         get_data.
+
+    CLASS-DATA:
+         gv_sayi1  TYPE numc5,
+         gv_sayi2  TYPE numc5.
+
+ENDCLASS.
+
+
+
+
+CLASS gcl_class IMPLEMENTATION.
+
+  METHOD constructor.  " بناء
+     gv_sayi1 = iv_sayi1.
+     gv_sayi2 = iv_sayi2.
+  ENDMETHOD.                    "constructor
+
+
+
+METHOD get_data.
+
+  IF ( p_sayi1 GT 9999 ).                              "gt >
+    MESSAGE i007(zfa_message_class) DISPLAY LIKE 'E'.
+    EXIT.
+  ELSEIF ( p_sayi2 GT 9999 ).
+    MESSAGE i007(zfa_message_class) DISPLAY LIKE 'E'.
+    EXIT.
+  ENDIF.
+
+
+
+
+  IF  p_sayi2 IS INITIAL.
+    gv_bolunen = p_sayi1 MOD 2.
+    IF gv_bolunen = 0.
+      WRITE : p_sayi1 NO-ZERO, ' ASAL SAYI DEĞILDIR.'.
+    ELSE.
+      WRITE : p_sayi1 NO-ZERO, ' ASAL SAYIDIR.'.
+    ENDIF.
+  ENDIF.
+
+
+
+  IF NOT p_sayi2 IS INITIAL.
+    IF p_sayi1 GT p_sayi2.
+      MESSAGE i001(zfa_message_class) DISPLAY LIKE 'E'.
+      EXIT.
+    ENDIF.
+  ENDIF.
+
+
+
+  IF NOT p_sayi2 IS INITIAL.
+    WHILE p_sayi1 LE p_sayi2.
+      gv_no = 2.
+      gv_tag = 0.
+      WHILE gv_no < p_sayi1.
+        gv_res =  p_sayi1 MOD gv_no.
+        IF gv_res = 0.
+          gv_tag = 1.
+          EXIT.
+        ENDIF.
+        gv_no = gv_no + 1.
+      ENDWHILE.
+      IF gv_tag = 0.
+        WRITE : / p_sayi1 NO-ZERO ,'ASAL SAYIDIR'."COLOR 6 INTENSIFIED OFF.
+      ENDIF.
+      p_sayi1 = p_sayi1 + 1.
+    ENDWHILE.
+  ENDIF.
+
+ENDMETHOD.
+ENDCLASS.

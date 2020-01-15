@@ -1,0 +1,11 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_ASAL_SAYI_BULMACA_TOP
+*&---------------------------------------------------------------------*
+
+CLASS : gcl_class DEFINITION DEFERRED.  "TANIMLANMA TANIMLANMIŞ
+DATA : go_object TYPE REF TO gcl_class.
+
+DATA : gv_bolunen TYPE i,
+       gv_no      TYPE i,
+       gv_res     TYPE p,
+       gv_tag     TYPE i.

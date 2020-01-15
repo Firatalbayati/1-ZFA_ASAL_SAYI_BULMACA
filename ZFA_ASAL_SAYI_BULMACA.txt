@@ -1,0 +1,33 @@
+*&---------------------------------------------------------------------*
+*& Report  ZFA_ASAL_SAYI_BULMACA
+*&
+*&---------------------------------------------------------------------*
+*&
+*&
+*&---------------------------------------------------------------------*
+
+REPORT zfa_asal_sayi_bulmaca.
+
+INCLUDE zfa_asal_sayi_bulmaca_top.
+INCLUDE zfa_asal_sayi_bulmaca_scrn.
+INCLUDE zfa_asal_sayi_bulmaca_clss.
+INCLUDE zfa_asal_sayi_bulmaca_f01.
+
+
+AT SELECTION-SCREEN.
+
+
+  INITIALIZATION.
+  CREATE OBJECT go_object
+    EXPORTING
+      iv_sayi1 = p_sayi1
+      iv_sayi2 = p_sayi2.
+
+
+
+START-OF-SELECTION.
+    go_object->get_data( ).
+
+
+
+END-OF-SELECTION.

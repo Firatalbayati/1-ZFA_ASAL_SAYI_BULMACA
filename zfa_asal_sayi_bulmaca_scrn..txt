@@ -1,0 +1,12 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_ASAL_SAYI_BULMACA_SCRN
+*&---------------------------------------------------------------------*
+
+SELECTION-SCREEN BEGIN OF BLOCK  b1 WITH FRAME TITLE text-001.
+SELECTION-SCREEN SKIP.
+
+PARAMETERS : p_sayi1 TYPE numc5 OBLIGATORY,
+             p_sayi2 TYPE numc5.
+
+SELECTION-SCREEN SKIP.
+SELECTION-SCREEN END OF BLOCK b1.

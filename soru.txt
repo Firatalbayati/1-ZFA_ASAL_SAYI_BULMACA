@@ -1,0 +1,7 @@
+Asal Sayı Bulmaca
+
+2 parametreli bir seçim ekranı tasarlanacak.
+Her iki parametreye de en fazla 10000 değeri girilebilecek. 
+Parametrelerden biri zorunlu olacak.
+Sadece zorunlu parametre doldurulup çalıştırılırsa o sayının asal olup olmadığı ekrana basılacak.
+Her iki parametre de doldurulursa o 2 parametre arasındaki asal sayılar; bir satırda en fazla 10 sayı olacak şekilde ekrana bastırılacak.
